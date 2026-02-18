@@ -4,21 +4,21 @@ import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 
 const articles = [
-  { title: "Advances in CT Dose Optimization", author: "Dr. Ahmed Khan", date: "Jan 2026" },
-  { title: "Quality Assurance in Digital Mammography", author: "Dr. Fatima Noor", date: "Dec 2025" },
-  { title: "AI in Medical Imaging: Opportunities and Challenges", author: "Mr. Bilal Hussain", date: "Nov 2025" },
-  { title: "Radiation Protection in Interventional Radiology", author: "Ms. Ayesha Malik", date: "Oct 2025" },
+  { title: "Advances in IMRT Treatment Planning", author: "Dr. Ahmed Khan", date: "Jan 2026" },
+  { title: "Quality Assurance in Radiation Therapy", author: "Dr. Fatima Noor", date: "Dec 2025" },
+  { title: "AI Applications in Radiation Oncology", author: "Mr. Bilal Hussain", date: "Nov 2025" },
+  { title: "Radiation Protection for Therapy Professionals", author: "Ms. Ayesha Malik", date: "Oct 2025" },
 ];
 
 const guidelines = [
-  { title: "Radiation Safety Guidelines for Diagnostic Imaging", version: "v3.2", year: "2025" },
-  { title: "CT Protocol Standards for Pakistani Hospitals", version: "v2.1", year: "2025" },
-  { title: "MRI Safety and Screening Protocol", version: "v1.5", year: "2024" },
-  { title: "Code of Ethics for Radiation Technologists", version: "v4.0", year: "2025" },
+  { title: "Radiation Safety Guidelines for Therapy Departments", version: "v3.2", year: "2025" },
+  { title: "Treatment Planning Standards for Pakistani Hospitals", version: "v2.1", year: "2025" },
+  { title: "Patient Positioning and Immobilization Protocol", version: "v1.5", year: "2024" },
+  { title: "Code of Ethics for Radiation Therapists", version: "v4.0", year: "2025" },
 ];
 
 const publications = [
-  { title: "PSORT Journal of Radiation Technology", issue: "Vol. 12, Issue 1", status: "Latest" },
+  { title: "PSORT Journal of Radiation Therapy", issue: "Vol. 12, Issue 1", status: "Latest" },
   { title: "Annual Report 2025", issue: "2025 Edition", status: "New" },
   { title: "PSORT Newsletter — Q4 2025", issue: "October–December 2025", status: "" },
   { title: "Conference Proceedings 2025", issue: "Islamabad Conference", status: "" },
@@ -35,7 +35,7 @@ const Resources = () => (
       <div className="container-narrow text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="font-display text-4xl sm:text-5xl font-bold mb-4">Resources</h1>
-          <p className="text-lg opacity-85 max-w-2xl mx-auto">Articles, guidelines, publications, and downloads for radiation technology professionals.</p>
+          <p className="text-lg opacity-85 max-w-2xl mx-auto">Guidelines, publications, and educational materials for radiation therapy professionals.</p>
         </motion.div>
       </div>
     </section>

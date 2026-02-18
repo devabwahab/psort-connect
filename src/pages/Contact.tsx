@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Facebook, Linkedin } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 
@@ -39,6 +39,20 @@ const Contact = () => (
             </div>
 
             <div className="mt-8">
+              <h4 className="font-sans font-semibold text-foreground mb-3">Follow Us</h4>
+              <div className="flex gap-3">
+                {[
+                  { icon: Facebook, label: "Facebook" },
+                  { icon: Linkedin, label: "LinkedIn" },
+                ].map((s, i) => (
+                  <a key={i} href="#" className="w-10 h-10 rounded-lg bg-primary/10 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors text-primary" aria-label={s.label}>
+                    <s.icon size={18} />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-6">
               <h4 className="font-sans font-semibold text-foreground mb-2">Office Hours</h4>
               <p className="text-sm text-muted-foreground">Monday – Friday: 9:00 AM – 5:00 PM</p>
               <p className="text-sm text-muted-foreground">Saturday – Sunday: Closed</p>

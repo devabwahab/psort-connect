@@ -1,21 +1,21 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Award, BookOpen, Users, Lightbulb, HeartPulse, CalendarDays, ArrowRight } from "lucide-react";
+import { Award, BookOpen, Users, Lightbulb, HeartPulse, CalendarDays, ArrowRight, Shield } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const highlights = [
-  { icon: Award, title: "Excellence", desc: "Promoting the highest standards in radiation technology practice" },
-  { icon: BookOpen, title: "Education", desc: "Continuous professional development and training opportunities" },
-  { icon: Users, title: "Community", desc: "A growing network of radiation technology professionals" },
-  { icon: Lightbulb, title: "Innovation", desc: "Advancing research and new technologies in medical imaging" },
+  { icon: HeartPulse, title: "Patient Care", desc: "Ensuring the highest standards of radiation therapy for patient safety and outcomes" },
+  { icon: BookOpen, title: "Education", desc: "Continuous professional development and training for radiation therapists" },
+  { icon: Users, title: "Community", desc: "A growing network of radiation therapy professionals across Pakistan" },
+  { icon: Lightbulb, title: "Innovation", desc: "Advancing research and new technologies in radiation therapy" },
 ];
 
 const news = [
-  { date: "Feb 10, 2026", title: "Annual Conference 2026 — Registration Open", desc: "Join us for three days of learning, networking, and innovation in radiation technology." },
-  { date: "Jan 25, 2026", title: "New CPD Workshop Series Announced", desc: "Monthly workshops covering the latest in CT, MRI, and interventional radiology." },
-  { date: "Jan 12, 2026", title: "PSORT Partners with WHO Pakistan", desc: "A landmark collaboration to improve radiation safety standards nationwide." },
+  { date: "Feb 10, 2026", title: "Annual Conference 2026 — Registration Open", desc: "Join us for three days of learning, networking, and innovation in radiation therapy." },
+  { date: "Jan 25, 2026", title: "New CPD Workshop Series Announced", desc: "Monthly workshops covering the latest in radiation therapy techniques and protocols." },
+  { date: "Jan 12, 2026", title: "PSORT Partners with WHO Pakistan", desc: "A landmark collaboration to improve radiation therapy standards nationwide." },
 ];
 
 const fadeUp = {
@@ -32,20 +32,20 @@ const Index = () => (
       <div className="relative z-10 container-narrow section-padding !py-20 lg:!py-32 text-primary-foreground">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl">
           <span className="inline-block px-4 py-1.5 rounded-full border border-primary-foreground/30 text-sm font-medium mb-6 bg-primary-foreground/10 backdrop-blur-sm">
-            Pakistan Society of Radiation Technologists
+            Pakistan Society of Radiation Therapists
           </span>
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            Advancing Excellence in Radiation Technology
+            Advancing Radiation Therapy in Pakistan
           </h1>
           <p className="text-lg sm:text-xl opacity-85 max-w-xl mb-8 leading-relaxed">
-            Dedicated to promoting professional development, research, and collaboration among radiation technology professionals across Pakistan.
+            Dedicated to promoting professional development, research, and collaboration among radiation therapy professionals across Pakistan.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
               to="/membership"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary-foreground text-foreground font-semibold hover:bg-primary-foreground/90 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-accent-foreground font-semibold hover:bg-accent/90 transition-colors"
             >
-              Become a Member <ArrowRight size={18} />
+              Join Us <ArrowRight size={18} />
             </Link>
             <Link
               to="/about"
@@ -63,8 +63,8 @@ const Index = () => (
       <div className="container-narrow grid grid-cols-2 lg:grid-cols-4 gap-6 py-10 px-4 sm:px-6 lg:px-8">
         {[
           { num: "2,500+", label: "Members" },
-          { num: "150+", label: "Events Hosted" },
-          { num: "35+", label: "Years of Service" },
+          { num: "150+", label: "Events Held" },
+          { num: "35+", label: "Years Active" },
           { num: "50+", label: "Partner Institutions" },
         ].map((s, i) => (
           <motion.div key={i} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="text-center">
@@ -78,7 +78,7 @@ const Index = () => (
     {/* Mission Highlights */}
     <section className="section-padding bg-background">
       <div className="container-narrow">
-        <SectionHeading badge="Our Mission" title="Empowering Radiation Professionals" description="We are committed to advancing the field of radiation technology through education, collaboration, and innovation." />
+        <SectionHeading badge="Our Mission" title="Empowering Radiation Therapists" description="We are committed to advancing the field of radiation therapy through education, collaboration, and innovation." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {highlights.map((h, i) => (
             <motion.div
@@ -110,10 +110,10 @@ const Index = () => (
               About PSORT
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              A National Voice for Radiation Technologists
+              A National Voice for Radiation Therapists
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              The Pakistan Society of Radiation Technologists (PSORT) is a national professional body representing radiographers, radiation therapists, and medical imaging professionals across the country.
+              The Pakistan Society of Radiation Therapists (PSORT) is a national professional body representing radiation therapists, radiographers, and medical imaging professionals across the country.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">
               Founded with a vision to elevate the profession, PSORT works tirelessly to promote education, ensure quality standards, and foster a community of practice that benefits both professionals and patients.
@@ -123,11 +123,11 @@ const Index = () => (
             </Link>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="grid grid-cols-2 gap-4">
-            {[HeartPulse, BookOpen, Users, Award].map((Icon, i) => (
+            {[HeartPulse, BookOpen, Shield, Award].map((Icon, i) => (
               <div key={i} className="p-6 rounded-xl bg-card shadow-card border border-border flex flex-col items-center text-center">
                 <Icon className="text-primary mb-3" size={28} />
                 <span className="text-sm font-medium text-foreground">
-                  {["Patient Care", "Education", "Collaboration", "Standards"][i]}
+                  {["Patient Care", "Education", "Safety", "Excellence"][i]}
                 </span>
               </div>
             ))}
@@ -161,7 +161,7 @@ const Index = () => (
           ))}
         </div>
         <div className="text-center mt-10">
-          <Link to="/education" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
+          <Link to="/events" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
             View all events <ArrowRight size={16} />
           </Link>
         </div>
@@ -174,11 +174,11 @@ const Index = () => (
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="font-display text-3xl sm:text-4xl font-bold mb-4">Join the PSORT Community</h2>
           <p className="text-lg opacity-85 max-w-xl mx-auto mb-8">
-            Be part of Pakistan's leading professional body for radiation technologists. Grow your career, expand your network, and make an impact.
+            Be part of Pakistan's leading professional body for radiation therapists. Grow your career, expand your network, and make an impact.
           </p>
           <Link
             to="/membership"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-primary-foreground text-foreground font-semibold hover:bg-primary-foreground/90 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-accent text-accent-foreground font-semibold hover:bg-accent/90 transition-colors"
           >
             Become a Member Today <ArrowRight size={18} />
           </Link>

@@ -7,9 +7,9 @@ const navLinks = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About Us" },
   { to: "/membership", label: "Membership" },
-  { to: "/education", label: "Education & Events" },
+  { to: "/events", label: "Events & News" },
   { to: "/resources", label: "Resources" },
-  { to: "/gallery", label: "Gallery" },
+  { to: "/committee", label: "Executive Committee" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -26,7 +26,7 @@ const Navbar = () => {
           </div>
           <div className="hidden sm:block">
             <span className="font-display font-bold text-foreground text-lg leading-tight block">PSORT</span>
-            <span className="text-[10px] text-muted-foreground leading-none">Pakistan Society of Radiation Technologists</span>
+            <span className="text-[10px] text-muted-foreground leading-none">Pakistan Society of Radiation Therapists</span>
           </div>
         </Link>
 
@@ -49,7 +49,7 @@ const Navbar = () => {
 
         <Link
           to="/membership"
-          className="hidden lg:inline-flex px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors"
+          className="hidden lg:inline-flex px-4 py-2 rounded-lg bg-accent text-accent-foreground text-sm font-semibold hover:bg-accent/90 transition-colors"
         >
           Join Now
         </Link>
@@ -91,7 +91,7 @@ const Navbar = () => {
               <Link
                 to="/membership"
                 onClick={() => setOpen(false)}
-                className="mt-2 px-4 py-3 rounded-lg bg-primary text-primary-foreground text-sm font-semibold text-center"
+                className="mt-2 px-4 py-3 rounded-lg bg-accent text-accent-foreground text-sm font-semibold text-center"
               >
                 Join Now
               </Link>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin } from "lucide-react";
 
 const Footer = () => (
   <footer className="bg-foreground text-background">
@@ -14,10 +14,10 @@ const Footer = () => (
             <span className="font-display font-bold text-lg">PSORT</span>
           </div>
           <p className="text-sm opacity-70 mb-5 leading-relaxed">
-            Pakistan Society of Radiation Technologists — advancing excellence in radiation technology, medical imaging, and patient care.
+            Pakistan Society of Radiation Therapists — advancing excellence in radiation therapy, medical imaging, and patient care.
           </p>
           <div className="flex gap-3">
-            {[Facebook, Twitter, Linkedin, Youtube].map((Icon, i) => (
+            {[Facebook, Linkedin].map((Icon, i) => (
               <a key={i} href="#" className="w-9 h-9 rounded-full bg-background/10 hover:bg-primary flex items-center justify-center transition-colors">
                 <Icon size={16} />
               </a>
@@ -29,10 +29,17 @@ const Footer = () => (
         <div>
           <h4 className="font-sans font-semibold text-sm uppercase tracking-wider mb-4 opacity-80">Quick Links</h4>
           <ul className="space-y-2.5 text-sm opacity-70">
-            {["About Us", "Membership", "Education & Events", "Resources", "Gallery", "Contact"].map((label) => (
-              <li key={label}>
-                <Link to={`/${label.toLowerCase().replace(/ & /g, "-").replace(/ /g, "-")}`} className="hover:opacity-100 transition-opacity">
-                  {label}
+            {[
+              { label: "About Us", to: "/about" },
+              { label: "Membership", to: "/membership" },
+              { label: "Events & News", to: "/events" },
+              { label: "Resources", to: "/resources" },
+              { label: "Executive Committee", to: "/committee" },
+              { label: "Contact", to: "/contact" },
+            ].map((link) => (
+              <li key={link.to}>
+                <Link to={link.to} className="hover:opacity-100 transition-opacity">
+                  {link.label}
                 </Link>
               </li>
             ))}
@@ -52,7 +59,7 @@ const Footer = () => (
         {/* Newsletter */}
         <div>
           <h4 className="font-sans font-semibold text-sm uppercase tracking-wider mb-4 opacity-80">Newsletter</h4>
-          <p className="text-sm opacity-70 mb-4">Stay updated with the latest in radiation technology.</p>
+          <p className="text-sm opacity-70 mb-4">Stay updated with the latest in radiation therapy.</p>
           <form onSubmit={(e) => e.preventDefault()} className="flex gap-2">
             <input
               type="email"
@@ -67,7 +74,7 @@ const Footer = () => (
       </div>
 
       <div className="mt-12 pt-8 border-t border-background/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs opacity-50">
-        <p>&copy; {new Date().getFullYear()} Pakistan Society of Radiation Technologists. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Pakistan Society of Radiation Therapists. All rights reserved.</p>
         <div className="flex gap-4">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
