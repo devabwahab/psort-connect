@@ -15,14 +15,13 @@ const benefits = [
 ];
 
 const categories = [
-  { name: "Student Member", price: "PKR 1,000/year", desc: "For enrolled students of radiation technology programs.", features: ["Event access", "Digital resources", "Student networking"] },
+  { name: "Student Member", price: "PKR 1,000/year", desc: "For enrolled students of radiation therapy programs.", features: ["Event access", "Digital resources", "Student networking"] },
   { name: "Associate Member", price: "PKR 3,000/year", desc: "For early-career professionals with less than 3 years of experience.", features: ["All student benefits", "CPD workshops", "Journal access"], highlight: false },
-  { name: "Full Member", price: "PKR 5,000/year", desc: "For qualified radiation technologists with 3+ years of experience.", features: ["All associate benefits", "Voting rights", "Leadership opportunities"], highlight: true },
-  { name: "Fellow", price: "PKR 10,000/year", desc: "For senior professionals with significant contributions to the field.", features: ["All full benefits", "Advisory board access", "Mentorship program"] },
+  { name: "Full Member", price: "PKR 5,000/year", desc: "For qualified radiation therapists with 3+ years of experience.", features: ["All associate benefits", "Voting rights", "Leadership opportunities"], highlight: true },
 ];
 
 const faqs = [
-  { q: "Who can join PSORT?", a: "Any radiation technologist, radiographer, radiation therapist, or medical imaging professional practicing or studying in Pakistan is eligible to join." },
+  { q: "Who can join PSORT?", a: "Any radiation therapist, radiographer, or medical imaging professional practicing or studying in Pakistan is eligible to join." },
   { q: "How do I apply?", a: "Fill out the membership application form on this page and submit along with your credentials. Our team will review and respond within 5-7 business days." },
   { q: "Can international professionals join?", a: "Yes, we welcome international members. Please contact us for details on international membership." },
   { q: "What payment methods are accepted?", a: "We accept bank transfer, JazzCash, EasyPaisa, and credit/debit card payments." },
@@ -39,7 +38,7 @@ const Membership = () => (
       <div className="container-narrow text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="font-display text-4xl sm:text-5xl font-bold mb-4">Membership</h1>
-          <p className="text-lg opacity-85 max-w-2xl mx-auto">Join a community of professionals dedicated to advancing radiation technology in Pakistan.</p>
+          <p className="text-lg opacity-85 max-w-2xl mx-auto">Join a community of professionals dedicated to advancing radiation therapy in Pakistan.</p>
         </motion.div>
       </div>
     </section>
@@ -51,7 +50,7 @@ const Membership = () => (
         <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
           {benefits.map((b, i) => (
             <motion.div key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="flex items-start gap-3 p-4 rounded-lg bg-card shadow-card border border-border">
-              <CheckCircle className="text-accent shrink-0 mt-0.5" size={18} />
+              <CheckCircle className="text-pakistan-green shrink-0 mt-0.5" size={18} />
               <span className="text-sm text-foreground">{b}</span>
             </motion.div>
           ))}
@@ -63,7 +62,7 @@ const Membership = () => (
     <section className="section-padding bg-muted">
       <div className="container-narrow">
         <SectionHeading badge="Plans" title="Membership Categories" />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {categories.map((c, i) => (
             <motion.div key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className={`p-6 rounded-xl border flex flex-col ${c.highlight ? "bg-primary text-primary-foreground border-primary shadow-lg scale-[1.02]" : "bg-card text-foreground border-border shadow-card"}`}>
               <h3 className="font-sans font-bold text-lg">{c.name}</h3>
@@ -72,7 +71,7 @@ const Membership = () => (
               <ul className="space-y-2 mt-auto mb-6">
                 {c.features.map((f, fi) => (
                   <li key={fi} className="flex items-center gap-2 text-sm">
-                    <CheckCircle size={14} className={c.highlight ? "opacity-85" : "text-accent"} />
+                    <CheckCircle size={14} className={c.highlight ? "opacity-85" : "text-pakistan-green"} />
                     {f}
                   </li>
                 ))}
@@ -112,7 +111,6 @@ const Membership = () => (
                 <option>Student Member</option>
                 <option>Associate Member</option>
                 <option>Full Member</option>
-                <option>Fellow</option>
               </select>
             </div>
           </div>

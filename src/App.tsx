@@ -6,9 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Membership from "./pages/Membership";
-import Education from "./pages/Education";
+import Events from "./pages/Events";
 import Resources from "./pages/Resources";
-import Gallery from "./pages/Gallery";
+import Committee from "./pages/Committee";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -24,9 +24,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/membership" element={<Membership />} />
-          <Route path="/education" element={<Education />} />
+          <Route path="/events" element={<Events />} />
           <Route path="/resources" element={<Resources />} />
-          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/committee" element={<Committee />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
