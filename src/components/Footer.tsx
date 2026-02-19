@@ -1,44 +1,43 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram, Twitter, Youtube, ArrowRight } from "lucide-react";
 
 const Footer = () => (
-  <footer className="bg-foreground text-background">
+  <footer className="bg-navy text-navy-foreground">
     <div className="container-narrow section-padding !py-12 lg:!py-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        {/* Brand */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {/* PSORT Info */}
         <div>
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">PS</span>
+          <div className="flex items-center gap-2.5 mb-4">
+            <div className="w-10 h-10 rounded-lg bg-teal flex items-center justify-center">
+              <span className="text-teal-foreground font-bold text-sm font-heading">PS</span>
             </div>
             <span className="font-display font-bold text-lg">PSORT</span>
           </div>
-          <p className="text-sm opacity-70 mb-5 leading-relaxed">
-            Pakistan Society of Radiation Therapists — advancing excellence in radiation therapy, medical imaging, and patient care.
+          <p className="text-sm opacity-60 mb-4 leading-relaxed">
+            One Voice for Radiation Therapy in Pakistan. Advancing cancer care through education, research, and professional excellence.
           </p>
-          <div className="flex gap-3">
-            {[Facebook, Linkedin].map((Icon, i) => (
-              <a key={i} href="#" className="w-9 h-9 rounded-full bg-background/10 hover:bg-primary flex items-center justify-center transition-colors">
-                <Icon size={16} />
-              </a>
-            ))}
-          </div>
+          <ul className="space-y-2 text-sm opacity-60">
+            <li className="flex items-start gap-2"><MapPin size={14} className="mt-0.5 shrink-0" /> PSORT Head Office, Karachi, Pakistan</li>
+            <li className="flex items-start gap-2"><Mail size={14} className="mt-0.5 shrink-0" /> info@psort.com.pk</li>
+            <li className="flex items-start gap-2"><Phone size={14} className="mt-0.5 shrink-0" /> +92-XXX-XXXXXXX</li>
+          </ul>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h4 className="font-sans font-semibold text-sm uppercase tracking-wider mb-4 opacity-80">Quick Links</h4>
-          <ul className="space-y-2.5 text-sm opacity-70">
+          <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-5 opacity-80">Quick Links</h4>
+          <ul className="space-y-2.5 text-sm opacity-60">
             {[
-              { label: "About Us", to: "/about" },
+              { label: "Home", to: "/" },
+              { label: "About PSORT", to: "/about" },
+              { label: "RTCON 2026", to: "/rtcon" },
+              { label: "R&D Wing", to: "/resources" },
               { label: "Membership", to: "/membership" },
-              { label: "Events & News", to: "/events" },
-              { label: "Resources", to: "/resources" },
-              { label: "Executive Committee", to: "/committee" },
+              { label: "News & Events", to: "/events" },
               { label: "Contact", to: "/contact" },
             ].map((link) => (
               <li key={link.to}>
-                <Link to={link.to} className="hover:opacity-100 transition-opacity">
+                <Link to={link.to} className="hover:opacity-100 hover:text-teal transition-all font-heading">
                   {link.label}
                 </Link>
               </li>
@@ -46,38 +45,33 @@ const Footer = () => (
           </ul>
         </div>
 
-        {/* Contact */}
+        {/* Become a Member */}
         <div>
-          <h4 className="font-sans font-semibold text-sm uppercase tracking-wider mb-4 opacity-80">Contact</h4>
-          <ul className="space-y-3 text-sm opacity-70">
-            <li className="flex items-start gap-2"><Mail size={15} className="mt-0.5 shrink-0" /> info@psort.org.pk</li>
-            <li className="flex items-start gap-2"><Phone size={15} className="mt-0.5 shrink-0" /> +92 300 1234567</li>
-            <li className="flex items-start gap-2"><MapPin size={15} className="mt-0.5 shrink-0" /> Islamabad, Pakistan</li>
-          </ul>
-        </div>
-
-        {/* Newsletter */}
-        <div>
-          <h4 className="font-sans font-semibold text-sm uppercase tracking-wider mb-4 opacity-80">Newsletter</h4>
-          <p className="text-sm opacity-70 mb-4">Stay updated with the latest in radiation therapy.</p>
-          <form onSubmit={(e) => e.preventDefault()} className="flex gap-2">
-            <input
-              type="email"
-              placeholder="Your email"
-              className="flex-1 min-w-0 px-3 py-2 rounded-lg bg-background/10 border border-background/20 text-sm placeholder:opacity-50 focus:outline-none focus:border-primary"
-            />
-            <button type="submit" className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors shrink-0">
-              Subscribe
-            </button>
-          </form>
+          <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-5 opacity-80">Become a Member</h4>
+          <p className="text-sm opacity-60 mb-6 leading-relaxed">
+            Join Pakistan's leading professional body for radiation therapists. Grow your career, expand your network, and make an impact in cancer care.
+          </p>
+          <Link
+            to="/membership"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-accent-foreground text-sm font-heading font-semibold hover:bg-accent/90 transition-colors"
+          >
+            Join Now <ArrowRight size={15} />
+          </Link>
+          <div className="flex gap-3 mt-6">
+            {[Facebook, Twitter, Linkedin, Instagram, Youtube].map((Icon, i) => (
+              <a key={i} href="#" className="w-8 h-8 rounded-full bg-white/10 hover:bg-teal flex items-center justify-center transition-colors">
+                <Icon size={14} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="mt-12 pt-8 border-t border-background/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs opacity-50">
-        <p>&copy; {new Date().getFullYear()} Pakistan Society of Radiation Therapists. All rights reserved.</p>
+      <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs opacity-40 font-heading">
+        <p>Pakistan Society of Radiation Therapists &copy; {new Date().getFullYear()} www.psort.com.pk</p>
         <div className="flex gap-4">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
+          <a href="#" className="hover:opacity-100">Privacy Policy</a>
+          <a href="#" className="hover:opacity-100">Terms of Use</a>
         </div>
       </div>
     </div>
