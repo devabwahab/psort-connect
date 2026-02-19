@@ -1,8 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Facebook, Linkedin, Instagram, Twitter, Youtube, User } from "lucide-react";
+import { Menu, X, ChevronDown, Facebook, Linkedin, Instagram, Twitter, Youtube } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useAuth } from "@/contexts/AuthContext";
 
 const megaMenus: Record<string, { label: string; to: string }[]> = {
   "About PSORT": [
@@ -46,7 +45,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const { user, profile } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -72,19 +70,10 @@ const Navbar = () => {
             ))}
           </div>
           <div className="flex items-center gap-4">
-            {user ? (
-              <Link to="/dashboard" className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity font-heading">
-                <User size={14} />
-                {profile?.full_name || "Dashboard"}
-              </Link>
-            ) : (
-              <>
-                <Link to="/login" className="opacity-70 hover:opacity-100 transition-opacity font-heading">Login</Link>
-                <Link to="/membership" className="px-3 py-1 rounded bg-accent text-accent-foreground font-heading font-semibold hover:bg-accent/90 transition-colors">
-                  Become a Member
-                </Link>
-              </>
-            )}
+            <Link to="/login" className="opacity-70 hover:opacity-100 transition-opacity font-heading">Login</Link>
+            <Link to="/membership" className="px-3 py-1 rounded bg-accent text-accent-foreground font-heading font-semibold hover:bg-accent/90 transition-colors">
+              Become a Member
+            </Link>
           </div>
         </div>
       </div>
