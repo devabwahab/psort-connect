@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
-interface SectionHeadingProps {
+export interface SectionHeadingProps {
   badge?: string;
   title: string;
   description?: string;
   children?: ReactNode;
   center?: boolean;
+  dark?: boolean;
 }
 
-const SectionHeading = ({ badge, title, description, children, center = true }: SectionHeadingProps) => (
+const SectionHeading = ({ badge, title, description, children, center = true, dark = false }: SectionHeadingProps) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -18,12 +19,12 @@ const SectionHeading = ({ badge, title, description, children, center = true }: 
     className={`mb-12 ${center ? "text-center" : ""}`}
   >
     {badge && (
-      <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider mb-3">
+      <span className={`inline-block px-3 py-1 rounded-full text-xs font-heading font-semibold uppercase tracking-wider mb-3 ${dark ? "bg-teal/20 text-teal" : "bg-teal/10 text-teal"}`}>
         {badge}
       </span>
     )}
-    <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">{title}</h2>
-    {description && <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">{description}</p>}
+    <h2 className={`font-display text-3xl sm:text-4xl font-bold ${dark ? "text-white" : "text-foreground"}`}>{title}</h2>
+    {description && <p className={`mt-3 max-w-2xl mx-auto ${dark ? "text-white/70" : "text-muted-foreground"}`}>{description}</p>}
     {children}
   </motion.div>
 );
