@@ -171,56 +171,56 @@ useEffect(() => {
   return (
     <Layout>
       {/* ═══ SECTION 1: HERO ═══ */}
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden text-white">
-  
-  <AnimatePresence mode="wait">
-    <motion.img
-      key={current}
-      src={slides[current].image}
-      alt=""
-      className="absolute inset-0 w-full h-full object-cover"
-      initial={{ opacity: 0, scale: 1.05 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 1 }}
-    />
-  </AnimatePresence>
-
-  <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
-
-  <div className="relative z-10 container-narrow section-padding !py-24 lg:!py-36">
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={current}
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -40 }}
-        transition={{ duration: 0.8 }}
-        className="max-w-3xl"
-      >
-        <span className="inline-block text-teal text-xs font-heading font-semibold uppercase tracking-[0.2em] mb-6">
-          Pakistan Society of Radiation Therapists
-        </span>
-
-        <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6">
-          {slides[current].title}
-        </h1>
-
-        <p className="text-lg sm:text-xl opacity-80 max-w-xl mb-10 leading-relaxed">
-          {slides[current].description}
-        </p>
-
-        <div className="flex flex-wrap gap-4">
-          <Link to="/membership" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-accent text-accent-foreground font-heading font-semibold hover:bg-accent/90 transition-colors">
-            Become a Member
-          </Link>
-          <Link to="/about" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg border-2 border-white/30 hover:bg-white/10 transition-colors">
-            Explore PSORT
-          </Link>
-        </div>
-      </motion.div>
-    </AnimatePresence>
-  </div>
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden text-white"> 
+   
+  <AnimatePresence mode="wait"> 
+    <motion.img 
+      key={current} 
+      src={slides[current].image} 
+      alt="" 
+      className="absolute inset-0 w-full h-full object-cover" 
+      initial={{ opacity: 0, scale: 1.05 }} 
+      animate={{ opacity: 1, scale: 1 }} 
+      exit={{ opacity: 0 }} 
+      transition={{ duration: 1 }} 
+    /> 
+  </AnimatePresence> 
+ 
+  <div className="absolute inset-0 bg-black/60" /> 
+ 
+  <div className="relative z-10 container-narrow section-padding !py-24 lg:!py-36"> 
+    <AnimatePresence mode="wait"> 
+      <motion.div 
+        key={current} 
+        initial={{ opacity: 0, y: 40 }} 
+        animate={{ opacity: 1, y: 0 }} 
+        exit={{ opacity: 0, y: -40 }} 
+        transition={{ duration: 0.8 }} 
+        className="max-w-3xl" 
+      > 
+        <span className="inline-block text-teal text-xs font-heading font-semibold uppercase tracking-[0.2em] mb-6"> 
+          Pakistan Society of Radiation Therapists 
+        </span> 
+ 
+        <h1 className="font-display text-xl sm:text-2xl lg:text-4xl font-bold leading-[1.1] mb-2"> 
+          {slides[current].title} 
+        </h1> 
+ 
+        <p className="text-sm sm:text-base opacity-80 max-w-xl mb-10 leading-relaxed"> 
+          {slides[current].description} 
+        </p> 
+ 
+        <div className="flex flex-wrap gap-4"> 
+          <Link to="/membership" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-accent text-accent-foreground font-heading font-semibold hover:bg-accent/90 transition-colors"> 
+            Become a Member 
+          </Link> 
+          <Link to="/about" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg border-2 border-white/30 hover:bg-white/10 transition-colors"> 
+            Explore PSORT 
+          </Link> 
+        </div> 
+      </motion.div> 
+    </AnimatePresence> 
+  </div> 
 </section>
 
       {/* ═══ Stats Bar ═══ */}
