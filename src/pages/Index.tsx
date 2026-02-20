@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion,AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowDown, CalendarDays, ChevronLeft, ChevronRight, Quote, BookOpen, Microscope, Users, GraduationCap, HeartPulse, Shield, Award, Globe } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
-import heroBg from "@/assets/hero-bg.jpg";
+import hero1 from "@/assets/hero1.jpg";
+import hero2 from "@/assets/hero2.jpg";
+import hero3 from "@/assets/hero3.jpg";
 
 /* ── Counter Hook ── */
 function useCountUp(target: number, duration = 2000) {
@@ -44,6 +46,28 @@ const StatItem = ({ num, suffix, label }: { num: number; suffix: string; label: 
   );
 };
 
+/* HERO SLIDES*/
+const slides = [
+  {
+    image: hero1,
+    title: "One Voice for Radiation Therapy",
+    description:
+      "Advancing cancer care through education, research, and professional excellence across Pakistan.",
+  },
+  {
+    image: hero2,
+    title: "Empowering Radiation Professionals",
+    description:
+      "Supporting continuous learning and innovation in radiation therapy.",
+  },
+  {
+    image: hero3,
+    title: "Shaping the Future of Oncology Care",
+    description:
+      "Building a stronger network of radiation therapists nationwide.",
+  },
+];
+
 /* ── Data ── */
 const news = [
   { date: "Feb 2026", title: "PSORT Celebrates World Radiotherapy Awareness Day 2026", desc: "Nationwide observances across 60+ radiation therapy centers highlighting the critical role of radiotherapy in cancer care.", readTime: "4 min" },
@@ -60,7 +84,7 @@ const testimonials = [
 ];
 
 const councilMembers = [
-  { name: "Dr. Muhammad Ali", role: "President", color: "bg-navy" },
+  { name: "Dr. Syed Touseef-ur-Rehman", role: "President", color: "bg-navy" },
   { name: "Dr. Fatima Ahmed", role: "Senior Vice President", color: "bg-navy" },
   { name: "Dr. Hassan Sheikh", role: "Vice President", color: "bg-navy" },
   { name: "Dr. Ayesha Siddiqui", role: "General Secretary", color: "bg-navy" },
@@ -125,40 +149,70 @@ const Index = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const [current, setCurrent] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrent((prev) => (prev + 1) % slides.length);
+  }, 5000); // change every 5 seconds
+
+  return () => clearInterval(interval);
+}, []);
+
   return (
     <Layout>
       {/* ═══ SECTION 1: HERO ═══ */}
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
-        <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 hero-overlay grain-texture" />
-        <div className="absolute inset-0 flex items-center justify-center opacity-[0.03]">
-          <span className="text-[30vw] font-display font-bold text-white select-none">PS</span>
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden text-white">
+  
+  <AnimatePresence mode="wait">
+    <motion.img
+      key={current}
+      src={slides[current].image}
+      alt=""
+      className="absolute inset-0 w-full h-full object-cover"
+      initial={{ opacity: 0, scale: 1.05 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+    />
+  </AnimatePresence>
+
+  <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+
+  <div className="relative z-10 container-narrow section-padding !py-24 lg:!py-36">
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={current}
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -40 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-3xl"
+      >
+        <span className="inline-block text-teal text-xs font-heading font-semibold uppercase tracking-[0.2em] mb-6">
+          Pakistan Society of Radiation Therapists
+        </span>
+
+        <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6">
+          {slides[current].title}
+        </h1>
+
+        <p className="text-lg sm:text-xl opacity-80 max-w-xl mb-10 leading-relaxed">
+          {slides[current].description}
+        </p>
+
+        <div className="flex flex-wrap gap-4">
+          <Link to="/membership" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-accent text-accent-foreground font-heading font-semibold hover:bg-accent/90 transition-colors">
+            Become a Member
+          </Link>
+          <Link to="/about" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg border-2 border-white/30 hover:bg-white/10 transition-colors">
+            Explore PSORT
+          </Link>
         </div>
-        <div className="relative z-10 container-narrow section-padding !py-24 lg:!py-36 text-white">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-3xl">
-            <span className="inline-block text-teal text-xs font-heading font-semibold uppercase tracking-[0.2em] mb-6">
-              Pakistan Society of Radiation Therapists
-            </span>
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6">
-              One Voice for <br />Radiation Therapy
-            </h1>
-            <p className="text-lg sm:text-xl opacity-80 max-w-xl mb-10 leading-relaxed">
-              Advancing cancer care through education, research, and professional excellence across Pakistan.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link to="/membership" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-accent text-accent-foreground font-heading font-semibold hover:bg-accent/90 transition-colors">
-                Become a Member <ArrowRight size={18} />
-              </Link>
-              <Link to="/about" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg border-2 border-white/30 text-white font-heading font-semibold hover:bg-white/10 transition-colors">
-                Explore PSORT
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-        <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 2 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-          <ArrowDown className="text-white/50" size={24} />
-        </motion.div>
-      </section>
+      </motion.div>
+    </AnimatePresence>
+  </div>
+</section>
 
       {/* ═══ Stats Bar ═══ */}
       <section className="bg-navy text-navy-foreground">
