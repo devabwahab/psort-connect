@@ -123,7 +123,7 @@ const Navbar = () => {
 
   {/* Mobile Text */}
   <span className="sm:hidden font-bold text-base tracking-wide text-foreground">
-    PSORT
+    PSORT|Pakistan society of<br>Radiation therapists </br>
   </span>
 
   {/* Desktop Text */}
