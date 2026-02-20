@@ -11,19 +11,41 @@ const megaMenus: Record<string, { label: string; to: string }[]> = {
     { label: "Annual Reports", to: "/about#reports" },
     { label: "Constitution & Bylaws", to: "/about#constitution" },
   ],
+  "R&D Wing": [
+    { label: "PSORT Education", to: "/r-d-wing#education" },
+    { label: "Research & Clinical Trials", to: "/r-d-wing#research" },
+    { label: "Radiation Therapy Platforms", to: "/r-d-wing#platforms" },
+    { label: "Cancer Prevention", to: "/r-d-wing#prevention" },
+    { label: "Media Cell", to: "/r-d-wing#media" },
+    { label: "PSORT Journal (JPSORT)", to: "/resources#journal" },
+  ],
   "Membership": [
     { label: "Why Join PSORT?", to: "/membership" },
     { label: "Membership Categories", to: "/membership#categories" },
     { label: "Become a Member", to: "/membership#apply" },
+    { label: "Renew Membership", to: "/membership#renew" },
     { label: "Therapist Directory", to: "/membership#directory" },
+    { label: "Annual Review Report", to: "/membership#review" },
   ],
   "RTCON": [
     { label: "RTCON 2026", to: "/rtcon" },
+    { label: "RTCON 2025 Media", to: "/rtcon#2025" },
+    { label: "RTCON 2024", to: "/rtcon#2024" },
+    { label: "RTCON 2023", to: "/rtcon#2023" },
+    { label: "Sponsorship Opportunities", to: "/rtcon#sponsors" },
     { label: "Previous RTCONs", to: "/rtcon#past" },
-    { label: "Sponsorship", to: "/rtcon#sponsors" },
+  ],
+  "Elections": [
+    { label: "PSORT Elections", to: "/elections" },
+    { label: "Constitution", to: "/elections#constitution" },
+    { label: "Election Commissioner", to: "/elections#commissioner" },
+    { label: "Past Election Results", to: "/elections#results" },
+    { label: "Past Contestants", to: "/elections#contestants" },
+    { label: "Next Election Date", to: "/elections#next" },
   ],
   "News & Events": [
     { label: "Latest News", to: "/news" },
+    { label: "CME Activities", to: "/events#cme" },
     { label: "Upcoming Events", to: "/events" },
     { label: "Gallery", to: "/gallery" },
   ],
@@ -32,10 +54,11 @@ const megaMenus: Record<string, { label: string; to: string }[]> = {
 const navLinks = [
   { label: "Home", to: "/" },
   { label: "About PSORT", to: "/about" },
+  { label: "R&D Wing", to: "/r-d-wing" },
   { label: "Membership", to: "/membership" },
   { label: "RTCON", to: "/rtcon" },
+  { label: "Elections", to: "/elections" },
   { label: "News & Events", to: "/events" },
-  { label: "Resources", to: "/resources" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -70,6 +93,7 @@ const Navbar = () => {
             ))}
           </div>
           <div className="flex items-center gap-4">
+            <Link to="/dashboard" className="opacity-70 hover:opacity-100 transition-opacity font-heading">Dashboard</Link>
             <Link to="/login" className="opacity-70 hover:opacity-100 transition-opacity font-heading">Login</Link>
             <Link to="/membership" className="px-3 py-1 rounded bg-accent text-accent-foreground font-heading font-semibold hover:bg-accent/90 transition-colors">
               Become a Member
