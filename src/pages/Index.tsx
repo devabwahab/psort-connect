@@ -87,6 +87,30 @@ const glanceCards = [
   { title: "Why Awareness Drives Outcomes", text: "Over 60% of cancer patients who need radiotherapy never receive it. PSORT leads national advocacy campaigns to close this life-threatening gap." },
 ];
 
+const mosaicImages = [
+  { alt: "Modern LINAC treatment room", span: "row-span-2" },
+  { alt: "Therapist positioning a patient", span: "" },
+  { alt: "RTCON 2024 conference hall", span: "" },
+  { alt: "Hands-on IMRT training workshop", span: "row-span-2" },
+  { alt: "PSORT team photo 2025", span: "" },
+  { alt: "Quality assurance calibration", span: "" },
+  { alt: "Radiation therapy planning session", span: "" },
+  { alt: "Women in RT panel discussion", span: "col-span-2" },
+  { alt: "Young therapists networking event", span: "" },
+  { alt: "Patient consultation room", span: "" },
+];
+
+const supporters = ["IAEA", "WHO", "ASTRO", "ESTRO", "SAARC", "WRAD", "ISRRT", "IFMBE"];
+const sponsors = ["Varian (Siemens)", "Elekta", "Accuray", "IBA", "Philips Healthcare", "BrainLAB"];
+
+const rtconMemories = [
+  { label: "RTCON 2024", city: "Islamabad" },
+  { label: "RTCON 2023", city: "Lahore" },
+  { label: "RTCON 2022", city: "Karachi" },
+  { label: "RTCON 2019", city: "Peshawar" },
+  { label: "RTCON 2017", city: "Multan" },
+];
+
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.5 } }),
@@ -288,6 +312,33 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ═══ SECTION 7: PHOTO MOSAIC ═══ */}
+      <section className="section-padding bg-background">
+        <div className="container-narrow">
+          <SectionHeading badge="Gallery" title="Moments in Radiation Therapy" description="A visual journey through our work, conferences, and impact across Pakistan." />
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            {mosaicImages.map((img, i) => (
+              <motion.div
+                key={i}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className={`relative overflow-hidden rounded-xl group cursor-pointer ${img.span}`}
+              >
+                <div className="w-full h-full bg-muted flex items-center justify-center min-h-[160px]">
+                  <img src={`/placeholder.svg`} alt={img.alt} className="w-full h-full object-cover" />
+                </div>
+                <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/60 transition-colors duration-300 flex items-center justify-center">
+                  <p className="text-white font-heading font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 text-center">{img.alt}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══ SECTION 8: LATEST EVENTS ═══ */}
       <section className="section-padding bg-background">
         <div className="container-narrow">
@@ -396,6 +447,62 @@ const Index = () => {
                 <span className={`mt-2 px-3 py-1 rounded-full text-[11px] font-heading font-semibold text-white ${m.color}`}>
                   {m.role}
                 </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ SECTION 12: SUPPORTERS & SPONSORS ═══ */}
+      <section className="section-padding bg-secondary">
+        <div className="container-narrow text-center">
+          <SectionHeading badge="Partners" title="One Voice for Progress" description="We're grateful to our international supporters, partners, and sponsors advancing radiation therapy in Pakistan." />
+          
+          {/* Supporters auto-scroll */}
+          <div className="relative overflow-hidden mb-12">
+            <div className="flex animate-scroll-x gap-12 py-6">
+              {[...supporters, ...supporters].map((s, i) => (
+                <div key={i} className="shrink-0 w-32 h-16 rounded-lg bg-card border border-border shadow-sm flex items-center justify-center px-4">
+                  <span className="font-heading font-bold text-muted-foreground text-xs text-center">{s}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Sponsors static grid */}
+          <h3 className="font-heading font-semibold text-foreground mb-6">Industry Sponsors</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+            {sponsors.map((s, i) => (
+              <motion.div key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+                className="h-20 rounded-xl bg-card border border-border shadow-sm flex items-center justify-center px-4">
+                <span className="font-heading font-semibold text-muted-foreground text-xs text-center">{s}</span>
+              </motion.div>
+            ))}
+          </div>
+          <Link to="/about" className="inline-flex items-center gap-1 text-teal font-heading font-semibold text-sm hover:gap-2 transition-all">
+            View All Supporters <ArrowRight size={14} />
+          </Link>
+        </div>
+      </section>
+
+      {/* ═══ SECTION 13: RTCON MEMORIES ═══ */}
+      <section className="section-padding bg-background">
+        <div className="container-narrow">
+          <SectionHeading badge="Memories" title="RTCON Memories" description="Reminisce through our previous annual congresses." />
+          <div className="flex gap-5 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide">
+            {rtconMemories.map((m, i) => (
+              <motion.div key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
+                className="shrink-0 w-64 snap-start rounded-xl overflow-hidden bg-card shadow-card border border-border group">
+                <div className="aspect-video bg-muted flex items-center justify-center">
+                  <img src="/placeholder.svg" alt={m.label} className="w-full h-full object-cover" />
+                </div>
+                <div className="p-4">
+                  <h4 className="font-heading font-bold text-foreground">{m.label}</h4>
+                  <p className="text-sm text-muted-foreground">{m.city}</p>
+                  <Link to="/gallery" className="inline-flex items-center gap-1 text-teal text-sm font-heading font-medium mt-2 hover:gap-2 transition-all">
+                    View Gallery <ArrowRight size={13} />
+                  </Link>
+                </div>
               </motion.div>
             ))}
           </div>
