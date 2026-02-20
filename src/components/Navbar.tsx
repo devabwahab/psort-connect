@@ -105,24 +105,33 @@ const Navbar = () => {
       {/* Main Navbar */}
       <header className={`sticky top-0 z-50 bg-card/98 backdrop-blur-md transition-shadow ${scrolled ? "shadow-md" : ""}`}>
         <div className="container-narrow flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
-          <Link to="/" className="flex items-center gap-2.5">
-          <div className="flex items-center justify-center
-                w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20
-                transition-all duration-300">
+          <Link to="/" className="flex items-center gap-1.5">
 
-  <img 
-    src="/psort_logo.png" 
-    alt="PSORT Logo"
-    className="w-full h-full object-contain
-               transition-transform duration-300
-               hover:scale-105"
-  />
-</div>
-            <div className="hidden sm:block">
-              <span className="font-display font-bold text-foreground text-lg leading-tight block">PSORT</span>
-              <span className="text-[9px] text-muted-foreground leading-none font-heading tracking-wide uppercase">One Voice for Radiation Therapy</span>
-            </div>
-          </Link>
+  {/* Logo */}
+  <div className="flex items-center justify-center
+                  w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16
+                  transition-all duration-300">
+
+    <img 
+      src="/psort_logo.png" 
+      alt="PSORT Logo"
+      className="w-full h-full object-contain
+                 transition-transform duration-300
+                 hover:scale-105"
+    />
+  </div>
+
+  {/* Text */}
+  <div className="hidden sm:flex flex-col leading-tight">
+    <span className="font-display font-bold text-foreground text-xs sm:text-sm">
+      Pakistan Society of Radiation Therapists
+    </span>
+    <span className="text-[8px] sm:text-[9px] text-muted-foreground font-heading tracking-wide uppercase">
+      One Voice for Radiation Therapy
+    </span>
+  </div>
+
+</Link>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-0.5" ref={dropdownRef}>
