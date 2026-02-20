@@ -7,6 +7,9 @@ import SectionHeading from "@/components/SectionHeading";
 import hero1 from "@/assets/hero1.jpg";
 import hero2 from "@/assets/hero2.jpg";
 import hero3 from "@/assets/hero3.jpg";
+import hero4 from "@/assets/hero4.jpg";
+
+
 
 /* ── Counter Hook ── */
 function useCountUp(target: number, duration = 2000) {
@@ -50,19 +53,25 @@ const StatItem = ({ num, suffix, label }: { num: number; suffix: string; label: 
 const slides = [
   {
     image: hero1,
-    title: "One Voice for Radiation Therapy",
+    title: "Founders of PSORT",
     description:
       "Advancing cancer care through education, research, and professional excellence across Pakistan.",
   },
   {
     image: hero2,
-    title: "Empowering Radiation Professionals",
+    title: "1st Annual conference 4th feb 2024 Ziauddin Hospital",
     description:
       "Supporting continuous learning and innovation in radiation therapy.",
   },
   {
     image: hero3,
-    title: "Shaping the Future of Oncology Care",
+    title: "2nd Annual conference 7th feb 2025 DUHS Karachi.",
+    description:
+      "Building a stronger network of radiation therapists nationwide.",
+  },
+  {
+    image: hero4,
+    title: "2nd Annual conference 7th feb 2025 DUHS Karachi.",
     description:
       "Building a stronger network of radiation therapists nationwide.",
   },
