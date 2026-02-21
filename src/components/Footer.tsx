@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram, Twitter, Youtube, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin, Youtube, ArrowRight, MessageCircle } from "lucide-react";
 
 const Footer = () => (
   <footer className="bg-navy text-navy-foreground">
@@ -8,9 +8,7 @@ const Footer = () => (
         {/* PSORT Info */}
         <div>
           <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-10 h-10 rounded-lg bg-teal flex items-center justify-center">
-              <span className="text-teal-foreground font-bold text-sm font-heading">PS</span>
-            </div>
+            <img src="/psort_logo.png" alt="PSORT Logo" className="w-10 h-10 rounded-lg object-contain" />
             <span className="font-display font-bold text-lg">PSORT</span>
           </div>
           <p className="text-sm opacity-60 mb-4 leading-relaxed">
@@ -18,8 +16,8 @@ const Footer = () => (
           </p>
           <ul className="space-y-2 text-sm opacity-60">
             <li className="flex items-start gap-2"><MapPin size={14} className="mt-0.5 shrink-0" /> PSORT Head Office, Karachi, Pakistan</li>
-            <li className="flex items-start gap-2"><Mail size={14} className="mt-0.5 shrink-0" /> info@psort.com.pk</li>
-            <li className="flex items-start gap-2"><Phone size={14} className="mt-0.5 shrink-0" /> +92-XXX-XXXXXXX</li>
+            <li className="flex items-start gap-2"><Mail size={14} className="mt-0.5 shrink-0" /> psortoffical@gmail.com</li>
+            <li className="flex items-start gap-2"><Phone size={14} className="mt-0.5 shrink-0" /> +92 316 1624334</li>
           </ul>
         </div>
 
@@ -58,9 +56,14 @@ const Footer = () => (
             Join Now <ArrowRight size={15} />
           </Link>
           <div className="flex gap-3 mt-6">
-            {[Facebook, Twitter, Linkedin, Instagram, Youtube].map((Icon, i) => (
-              <a key={i} href="#" className="w-8 h-8 rounded-full bg-white/10 hover:bg-teal flex items-center justify-center transition-colors">
-                <Icon size={14} />
+            {[
+              { Icon: Youtube, href: "https://youtube.com/@psort-7k?si=7mo3JktknGDKmf90", label: "YouTube" },
+              { Icon: Linkedin, href: "https://www.linkedin.com/company/pakistan-society-of-radiation-therapists-psort/", label: "LinkedIn" },
+              { Icon: MessageCircle, href: "https://chat.whatsapp.com/LGvZtLQ48QNHqUmicq7581?mode=gi_t", label: "WhatsApp" },
+              { Icon: Facebook, href: "#", label: "Facebook" },
+            ].map((s, i) => (
+              <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="w-8 h-8 rounded-full bg-white/10 hover:bg-teal flex items-center justify-center transition-colors">
+                <s.Icon size={14} />
               </a>
             ))}
           </div>

@@ -22,8 +22,8 @@ const Contact = () => (
             <SectionHeading badge="Get in Touch" title="Contact Information" center={false} />
             <div className="space-y-5">
               {[
-                { icon: Mail, label: "Email", value: "info@psort.org.pk" },
-                { icon: Phone, label: "Phone", value: "+92 300 1234567" },
+                { icon: Mail, label: "Email", value: "psortoffical@gmail.com" },
+                { icon: Phone, label: "Phone", value: "+92 316 1624334" },
                 { icon: MapPin, label: "Address", value: "PSORT Secretariat, Sector G-10, Islamabad, Pakistan" },
               ].map((c, i) => (
                 <div key={i} className="flex items-start gap-4">
