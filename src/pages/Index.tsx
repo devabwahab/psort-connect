@@ -186,7 +186,7 @@ useEffect(() => {
     /> 
   </AnimatePresence> 
  
-  <div className="absolute inset-0 bg-black/60" /> 
+  <div className="absolute inset-0 bg-black/40" /> 
  
   <div className="relative z-10 container-narrow section-padding !py-24 lg:!py-36"> 
     <AnimatePresence mode="wait"> 
