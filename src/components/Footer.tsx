@@ -9,13 +9,15 @@ const Footer = () => (
         <div>
           <div className="flex items-center gap-2.5 mb-4">
             <img src="/psort_logo.png" alt="PSORT Logo" className="w-10 h-10 rounded-lg object-contain" />
-            <span className="font-display font-bold text-lg">PSORT</span>
+            <span className="font-display font-bold text-sm">Pakistan Society of Radiation Therapists</span>
           </div>
           <p className="text-sm opacity-60 mb-4 leading-relaxed">
             One Voice for Radiation Therapy in Pakistan. Advancing cancer care through education, research, and professional excellence.
           </p>
           <ul className="space-y-2 text-sm opacity-60">
-            <li className="flex items-start gap-2"><MapPin size={14} className="mt-0.5 shrink-0" /> PSORT Head Office, Karachi, Pakistan</li>
+            <li className="flex items-start gap-2"><MapPin size={14} className="mt-0.5 shrink-0" />
+            <div>PSORT Head Office, <br />
+              <span className="text-sm">Dow University of Health Sciences (DUHS) Ojha Campus Karachi.</span></div></li>
             <li className="flex items-start gap-2"><Mail size={14} className="mt-0.5 shrink-0" /> psortoffical@gmail.com</li>
             <li className="flex items-start gap-2"><Phone size={14} className="mt-0.5 shrink-0" /> +92 316 1624334</li>
           </ul>
@@ -56,22 +58,30 @@ const Footer = () => (
             Join Now <ArrowRight size={15} />
           </Link>
           <div className="flex gap-3 mt-6">
-            {[
-              { Icon: Youtube, href: "https://youtube.com/@psort-7k?si=7mo3JktknGDKmf90", label: "YouTube" },
-              { Icon: Linkedin, href: "https://www.linkedin.com/company/pakistan-society-of-radiation-therapists-psort/", label: "LinkedIn" },
-              { Icon: MessageCircle, href: "https://chat.whatsapp.com/LGvZtLQ48QNHqUmicq7581?mode=gi_t", label: "WhatsApp" },
-              { Icon: Facebook, href: "#", label: "Facebook" },
-            ].map((s, i) => (
-              <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="w-8 h-8 rounded-full bg-white/10 hover:bg-teal flex items-center justify-center transition-colors">
-                <s.Icon size={14} />
-              </a>
-            ))}
-          </div>
+  {[
+    
+    { Icon: Facebook, href: "https://www.facebook.com/", label: "Facebook", color: "text-blue-500" },
+    { Icon: MessageCircle, href: "https://chat.whatsapp.com/LGvZtLQ48QNHqUmicq7581?mode=gi_t", label: "WhatsApp", color: "text-green-500" },
+    { Icon: Linkedin, href: "https://www.linkedin.com/company/pakistan-society-of-radiation-therapists-psort/", label: "LinkedIn", color: "text-blue-600" },
+    { Icon: Youtube, href: "https://youtube.com/@psort-7k?si=7mo3JktknGDKmf90", label: "YouTube", color: "text-red-600" },
+  ].map((s, i) => (
+    <a
+      key={i}
+      href={s.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={s.label}
+      className="w-8 h-8 rounded-full bg-white/10 hover:bg-teal flex items-center justify-center transition-colors"
+    >
+      <s.Icon size={14} className={`${s.color}`} />
+    </a>
+  ))}
+</div>
         </div>
       </div>
 
       <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs opacity-40 font-heading">
-        <p>Pakistan Society of Radiation Therapists &copy; {new Date().getFullYear()} www.psort.com.pk</p>
+        <p>Pakistan Society of Radiation Therapists &copy; {new Date().getFullYear()}</p>
         <div className="flex gap-4">
           <a href="#" className="hover:opacity-100">Privacy Policy</a>
           <a href="#" className="hover:opacity-100">Terms of Use</a>

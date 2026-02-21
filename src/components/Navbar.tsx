@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Youtube, Linkedin, MessageCircle, LogOut } from "lucide-react";
+import { Menu, X, ChevronDown,Facebook, Youtube, Linkedin, MessageCircle, LogOut } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/hooks/useAuth";
 
@@ -88,16 +88,39 @@ const Navbar = () => {
       <div className="bg-navy text-navy-foreground">
         <div className="container-narrow flex items-center justify-between px-4 sm:px-6 lg:px-8 h-9 text-xs">
           <div className="flex items-center gap-3">
-            {[
-              { Icon: Youtube, href: "https://youtube.com/@psort-7k?si=7mo3JktknGDKmf90" },
-              { Icon: Linkedin, href: "https://www.linkedin.com/company/pakistan-society-of-radiation-therapists-psort/" },
-              { Icon: MessageCircle, href: "https://chat.whatsapp.com/LGvZtLQ48QNHqUmicq7581?mode=gi_t" },
-            ].map(({ Icon, href }, i) => (
-              <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="opacity-60 hover:opacity-100 transition-opacity">
-                <Icon size={13} />
-              </a>
-            ))}
-          </div>
+  {[
+    {
+    Icon: Facebook,
+    href: "https://www.facebook.com/",
+    color: "text-blue-600 hover:text-blue-700",
+  },
+  {
+      Icon: MessageCircle,
+      href: "https://chat.whatsapp.com/LGvZtLQ48QNHqUmicq7581?mode=gi_t",
+      color: "text-green-500 hover:text-green-600",
+    },
+    {
+      Icon: Youtube,
+      href: "https://youtube.com/@psort-7k?si=7mo3JktknGDKmf90",
+      color: "text-red-600 hover:text-red-700",
+    },
+    {
+      Icon: Linkedin,
+      href: "https://www.linkedin.com/company/pakistan-society-of-radiation-therapists-psort/",
+      color: "text-blue-600 hover:text-blue-700",
+    },
+  ].map(({ Icon, href, color }, i) => (
+    <a
+      key={i}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`opacity-60 hover:opacity-100 transition-opacity ${color}`}
+    >
+      <Icon size={13} />
+    </a>
+  ))}
+</div>
           <div className="flex items-center gap-4">
             {user ? (
               <>

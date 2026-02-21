@@ -53,7 +53,7 @@ const Contact = () => {
                 {[
                   { icon: Mail, label: "Email", value: "psortoffical@gmail.com" },
                   { icon: Phone, label: "Phone", value: "+92 316 1624334" },
-                  { icon: MapPin, label: "Address", value: "PSORT Secretariat, Karachi, Pakistan" },
+                  { icon: MapPin, label: "Address", value: "PSORT Head Office, Dow University of Health Sciences (DUHS) Ojha Campus Karachi." },
                 ].map((c, i) => (
                   <div key={i} className="flex items-start gap-4">
                     <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
@@ -66,27 +66,27 @@ const Contact = () => {
                   </div>
                 ))}
               </div>
-
               <div className="mt-8">
-                <h4 className="font-sans font-semibold text-foreground mb-3">Follow Us</h4>
-                <div className="flex gap-3">
-                  {[
-                    { icon: Youtube, label: "YouTube", href: "https://youtube.com/@psort-7k?si=7mo3JktknGDKmf90" },
-                    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/pakistan-society-of-radiation-therapists-psort/" },
-                    { icon: MessageCircle, label: "WhatsApp", href: "https://chat.whatsapp.com/LGvZtLQ48QNHqUmicq7581?mode=gi_t" },
-                  ].map((s, i) => (
-                    <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-primary/10 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors text-primary" aria-label={s.label}>
-                      <s.icon size={18} />
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-6">
-                <h4 className="font-sans font-semibold text-foreground mb-2">Office Hours</h4>
-                <p className="text-sm text-muted-foreground">Monday – Friday: 9:00 AM – 5:00 PM</p>
-                <p className="text-sm text-muted-foreground">Saturday – Sunday: Closed</p>
-              </div>
+  <h4 className="font-sans font-semibold text-foreground mb-3">Follow Us</h4>
+  <div className="flex gap-3">
+    {[
+      { icon: Youtube, label: "YouTube", href: "https://youtube.com/@psort-7k?si=7mo3JktknGDKmf90", color: "text-red-600" },
+      { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/pakistan-society-of-radiation-therapists-psort/", color: "text-blue-600" },
+      { icon: MessageCircle, label: "WhatsApp", href: "https://chat.whatsapp.com/LGvZtLQ48QNHqUmicq7581?mode=gi_t", color: "text-green-500" },
+    ].map((s, i) => (
+      <a
+        key={i}
+        href={s.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-10 h-10 rounded-lg bg-primary/10 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors"
+        aria-label={s.label}
+      >
+        <s.icon size={18} className={`${s.color}`} />
+      </a>
+    ))}
+  </div>
+</div>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:col-span-3">
@@ -119,16 +119,6 @@ const Contact = () => {
                 </button>
               </form>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <section className="h-80 bg-muted relative overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <MapPin className="text-primary mx-auto mb-2" size={32} />
-            <p className="text-sm text-muted-foreground font-medium">Karachi, Pakistan</p>
-            <p className="text-xs text-muted-foreground mt-1">Interactive map can be embedded here</p>
           </div>
         </div>
       </section>

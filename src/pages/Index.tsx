@@ -8,6 +8,7 @@ import hero1 from "@/assets/hero1.jpg";
 import hero2 from "@/assets/hero2.jpg";
 import hero3 from "@/assets/hero3.jpg";
 import hero4 from "@/assets/hero4.jpg";
+import wajid from "@/assets/wajid.jpg";
 
 
 
@@ -94,17 +95,18 @@ const testimonials = [
 
 const councilMembers = [
   { name: "Dr. Syed Touseef-ur-Rehman", role: "President", color: "bg-navy" },
-  { name: "Dr. Fatima Ahmed", role: "Senior Vice President", color: "bg-navy" },
-  { name: "Dr. Hassan Sheikh", role: "Vice President", color: "bg-navy" },
-  { name: "Dr. Ayesha Siddiqui", role: "General Secretary", color: "bg-navy" },
-  { name: "Dr. Usman Tariq", role: "Joint Secretary", color: "bg-teal" },
-  { name: "Dr. Nadia Qamar", role: "R&D Secretary", color: "bg-teal" },
-  { name: "Dr. Bilal Hussain", role: "Treasurer", color: "bg-teal" },
-  { name: "Dr. Sana Rehman", role: "Councilor — Punjab", color: "bg-teal" },
-  { name: "Dr. Kamran Shah", role: "Councilor — Sindh", color: "bg-teal" },
-  { name: "Dr. Faisal Khan", role: "Councilor — KPK", color: "bg-teal" },
-  { name: "Dr. Naseem Baloch", role: "Councilor — Balochistan", color: "bg-teal" },
-  { name: "Dr. Rizwan Ali", role: "Overseas Councilor", color: "bg-accent" },
+  { name: "Mr. Sohaib Siddiqui", role: "Senior Vice President", color: "bg-navy" },
+  { name: "Syed Majid Hussain Shah", role: "Vice President", color: "bg-navy" },
+  { name: "Sohail Ahmed Memon", role: "General Secretary", color: "bg-navy" },
+  { name: "Syed Ashar Amjad", role: "Joint Secretary", color: "bg-teal" },
+  { name: "Mr Wajid Ali Channa", role: "R&D Secretary", color: "bg-teal",image:wajid },
+  { name: "Mariam Naeem & Aisha Urooj", role: "Treasurer", color: "bg-teal" },
+  { name: "Muzzaffar Hussain", role: "Council Member — Punjab", color: "bg-teal" },
+  { name: "Zaka Ur Rehman", role: "Council Member — Sindh", color: "bg-teal" },
+  { name: "Abeer Chippa", role: "Overseas — UK", color: "bg-accent" },
+  { name: "Muhammad Naqash", role: "Overseas — UK", color: "bg-accent" },
+  { name: "Rashida Muneer", role: "Overseas — Ireland", color: "bg-accent" },
+  { name: "Muzdha", role: "Overseas — Australia", color: "bg-accent" },
 ];
 
 const events = [
@@ -121,16 +123,10 @@ const glanceCards = [
 ];
 
 const mosaicImages = [
-  { alt: "Modern LINAC treatment room", span: "row-span-2" },
-  { alt: "Therapist positioning a patient", span: "" },
-  { alt: "RTCON 2024 conference hall", span: "" },
-  { alt: "Hands-on IMRT training workshop", span: "row-span-2" },
-  { alt: "PSORT team photo 2025", span: "" },
-  { alt: "Quality assurance calibration", span: "" },
-  { alt: "Radiation therapy planning session", span: "" },
-  { alt: "Women in RT panel discussion", span: "col-span-2" },
-  { alt: "Young therapists networking event", span: "" },
-  { alt: "Patient consultation room", span: "" },
+  { src:hero1,alt: "Founders of PSORT", span: "" },
+  { src:hero3,alt: "RTCON 2024 conference hall2nd Annual conference 7th feb 2025 DUHS Karachi.", span: "" },
+  { src:hero2,alt: "1st Annual conference 4th feb 2024 Ziauddin Hospital", span: "" },
+  { src:hero4,alt: "2nd Annual conference 7th feb 2025 DUHS Karachi.", span: "" },
 ];
 
 const supporters = ["IAEA", "WHO", "ASTRO", "ESTRO", "SAARC", "WRAD", "ISRRT", "IFMBE"];
@@ -282,7 +278,7 @@ useEffect(() => {
             <Link to="/rtcon" className="px-7 py-3 rounded-lg bg-accent text-accent-foreground font-heading font-semibold hover:bg-accent/90 transition-colors">
               Register Now
             </Link>
-            <Link to="/rtcon" className="px-7 py-3 rounded-lg border-2 border-white/30 text-white font-heading font-semibold hover:bg-white/10 transition-colors">
+            <Link to="/rtcon" className="px-7 py-3 rounded-lg border-2 border-white/30 text-black  font-heading font-semibold hover:bg-black/50 transition-colors">
               Scientific Program
             </Link>
           </div>
@@ -322,25 +318,42 @@ useEffect(() => {
       </section>
 
       {/* ═══ SECTION 5: PSORT AT A GLANCE ═══ */}
-      <section className="section-padding bg-navy text-navy-foreground">
-        <div className="container-narrow">
-          <SectionHeading badge="At A Glance" title="Why PSORT Matters" description="Understanding the critical need for organized radiation therapy professionals in Pakistan." dark />
-          <div className="grid sm:grid-cols-2 gap-6">
-            {glanceCards.map((card, i) => (
-              <motion.div key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-                className="p-7 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm">
-                <h3 className="font-heading font-bold text-lg mb-3 text-teal">{card.title}</h3>
-                <p className="text-sm opacity-70 leading-relaxed">{card.text}</p>
-              </motion.div>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link to="/rtcon" className="inline-flex items-center gap-2 px-7 py-3 rounded-lg bg-accent text-accent-foreground font-heading font-semibold hover:bg-accent/90 transition-colors">
-              RTCON 2026 Registration <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <section className="section-padding bg-white text-gray-900">
+  <div className="container-narrow">
+    <SectionHeading
+      badge="At A Glance"
+      title="Why PSORT Matters"
+      description="Understanding the critical need for organized radiation therapy professionals in Pakistan."
+      dark={false} // dark prop removed since background is white
+    />
+
+    <div className="grid sm:grid-cols-2 gap-6">
+      {glanceCards.map((card, i) => (
+        <motion.div
+          key={i}
+          custom={i}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          className="p-7 rounded-xl border border-gray-200 bg-white shadow-sm"
+        >
+          <h3 className="font-heading font-bold text-lg mb-3 text-black">{card.title}</h3>
+          <p className="text-sm text-gray-700 leading-relaxed">{card.text}</p>
+        </motion.div>
+      ))}
+    </div>
+
+    <div className="text-center mt-10">
+      <Link
+        to="/rtcon"
+        className="inline-flex items-center gap-2 px-7 py-3 rounded-lg bg-accent text-white font-heading font-semibold hover:bg-teal-700 transition-colors"
+      >
+        RTCON 2026 Registration <ArrowRight size={16} />
+      </Link>
+    </div>
+  </div>
+</section>
 
       {/* ═══ SECTION 6: TESTIMONIALS ═══ */}
       <section className="relative section-padding bg-teal text-teal-foreground overflow-hidden">
@@ -376,31 +389,42 @@ useEffect(() => {
       </section>
 
       {/* ═══ SECTION 7: PHOTO MOSAIC ═══ */}
-      <section className="section-padding bg-background">
-        <div className="container-narrow">
-          <SectionHeading badge="Gallery" title="Moments in Radiation Therapy" description="A visual journey through our work, conferences, and impact across Pakistan." />
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {mosaicImages.map((img, i) => (
-              <motion.div
-                key={i}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className={`relative overflow-hidden rounded-xl group cursor-pointer ${img.span}`}
-              >
-                <div className="w-full h-full bg-muted flex items-center justify-center min-h-[160px]">
-                  <img src={`/placeholder.svg`} alt={img.alt} className="w-full h-full object-cover" />
-                </div>
-                <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/60 transition-colors duration-300 flex items-center justify-center">
-                  <p className="text-white font-heading font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 text-center">{img.alt}</p>
-                </div>
-              </motion.div>
-            ))}
+     <section className="section-padding bg-background">
+  <div className="container-narrow">
+    <SectionHeading
+      badge="Gallery"
+      title="Moments in Radiation Therapy"
+      description="A visual journey through our work, conferences, and impact across Pakistan."
+    />
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+      {mosaicImages.map((img, i) => (
+        <motion.div
+          key={i}
+          custom={i}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          className={`relative overflow-hidden rounded-xl group cursor-pointer ${img.span}`}
+        >
+          <div className="w-full h-full bg-muted flex items-center justify-center min-h-[160px]">
+            {/* Use actual image source from mosaicImages */}
+            <img
+              src={img.src}
+              alt={img.alt}
+              className="w-full h-full object-cover"
+            />
           </div>
-        </div>
-      </section>
+          <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/60 transition-colors duration-300 flex items-center justify-center">
+            <p className="text-white font-heading font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 text-center">
+              {img.alt}
+            </p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ═══ SECTION 8: LATEST EVENTS ═══ */}
       <section className="section-padding bg-background">
@@ -434,37 +458,40 @@ useEffect(() => {
       </section>
 
       {/* ═══ SECTION 9: INITIATIVES ═══ */}
-      <InitiativeBlock
-        title="Women in Radiation Therapy"
-        text="Leadership development programs, cancer awareness campaigns, research grants for women's cancers, and mentorship programs empowering women professionals in radiation therapy across Pakistan."
-        cta="Read More"
-        icon={HeartPulse}
-        bg="bg-background"
-        imageRight
-      />
-      <InitiativeBlock
-        title="Young Therapist Program"
-        text="Innovation grants, digital RT training, a national peer network of 200+ young therapists, and career acceleration pathways for the next generation of radiation therapy professionals."
-        cta="Apply Now"
-        icon={GraduationCap}
-        bg="bg-secondary"
-      />
-      <InitiativeBlock
-        title="Residents Corner"
-        text="Clinical toolkit, virtual tumor boards, a case repository of 100+ region-specific scenarios, and accredited rotation opportunities for radiation therapy residents."
-        cta="View Page"
-        icon={BookOpen}
-        bg="bg-background"
-        imageRight
-      />
-      <InitiativeBlock
-        title="Medical Physics Integration"
-        text="Precision dosimetry standards, treatment planning systems, quality assurance protocols, and collaboration frameworks with medical physicists for safer RT delivery."
-        cta="Learn More"
-        icon={Microscope}
-        bg="bg-navy text-navy-foreground"
-        dark
-      />
+<InitiativeBlock
+  title="Women in Radiation Therapy"
+  text="Leadership development programs, cancer awareness campaigns, research grants for women's cancers, and mentorship programs empowering women professionals in radiation therapy across Pakistan."
+  cta="Read More"
+  icon={HeartPulse}
+  bg="bg-gray-50" // light gray for separation on white background
+  imageRight
+  dark={false} // text dark for readability
+/>
+<InitiativeBlock
+  title="Young Therapist Program"
+  text="Innovation grants, digital RT training, a national peer network of 200+ young therapists, and career acceleration pathways for the next generation of radiation therapy professionals."
+  cta="Apply Now"
+  icon={GraduationCap}
+  bg="bg-gray-50" // soft teal background for contrast
+  dark={false}
+/>
+<InitiativeBlock
+  title="Residents Corner"
+  text="Clinical toolkit, virtual tumor boards, a case repository of 100+ region-specific scenarios, and accredited rotation opportunities for radiation therapy residents."
+  cta="View Page"
+  icon={BookOpen}
+  bg="bg-gray-50"
+  imageRight
+  dark={false}
+/>
+<InitiativeBlock
+  title="Medical Physics Integration"
+  text="Precision dosimetry standards, treatment planning systems, quality assurance protocols, and collaboration frameworks with medical physicists for safer RT delivery."
+  cta="Learn More"
+  icon={Microscope}
+  bg="bg-gray-50"
+  dark={false} // keeps CTA button or text highlighted for contrast
+/>
 
       {/* ═══ SECTION 10: PRESIDENT'S MESSAGE ═══ */}
       <section className="section-padding bg-secondary">
@@ -474,7 +501,7 @@ useEffect(() => {
               <div className="w-40 h-40 rounded-full bg-muted border-4 border-teal mb-4 flex items-center justify-center">
                 <Users className="text-muted-foreground" size={48} />
               </div>
-              <h3 className="font-heading font-bold text-foreground text-lg">Dr. Muhammad Ali</h3>
+              <h3 className="font-heading font-bold text-foreground text-lg">Dr. Syed Touseef-ur-Rehman</h3>
               <p className="text-sm text-muted-foreground font-heading">President, PSORT</p>
               <div className="w-8 h-8 rounded bg-teal flex items-center justify-center mt-3">
                 <span className="text-teal-foreground font-bold text-[10px] font-heading">PS</span>
@@ -489,7 +516,7 @@ useEffect(() => {
                 <p>Through programs like the Residents Corner clinical toolkit, the JPSORT research journal, and our annual RTCON congress, we are building an ecosystem where every radiation therapist has the tools to deliver world-class treatment.</p>
                 <p>I invite every radiation therapy professional in Pakistan to join us in this mission. Together, we are one voice — for our profession, for our patients, and for a cancer-free future.</p>
               </div>
-              <p className="font-heading font-semibold text-foreground mt-6 italic">— Dr. Muhammad Ali, President, PSORT</p>
+              <p className="font-heading font-semibold text-foreground mt-6 italic">— Dr. Syed Touseef-ur-Rehman, President, PSORT</p>
             </motion.div>
           </div>
         </div>
@@ -497,24 +524,48 @@ useEffect(() => {
 
       {/* ═══ SECTION 11: EXECUTIVE COUNCIL ═══ */}
       <section className="section-padding bg-background">
-        <div className="container-narrow">
-          <SectionHeading badge="Leadership" title="Executive Council" description="The dedicated professionals guiding PSORT's mission across Pakistan." />
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-            {councilMembers.map((m, i) => (
-              <motion.div key={i} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-                className="flex flex-col items-center text-center p-5 rounded-xl bg-card shadow-card border border-border">
-                <div className="w-20 h-20 rounded-full bg-muted border-2 border-teal/30 mb-3 flex items-center justify-center">
-                  <Users className="text-muted-foreground" size={28} />
-                </div>
-                <h4 className="font-heading font-semibold text-foreground text-sm">{m.name}</h4>
-                <span className={`mt-2 px-3 py-1 rounded-full text-[11px] font-heading font-semibold text-white ${m.color}`}>
-                  {m.role}
-                </span>
-              </motion.div>
-            ))}
+  <div className="container-narrow">
+    <SectionHeading
+      badge="Leadership"
+      title="Executive Council"
+      description="The dedicated professionals guiding PSORT's mission across Pakistan."
+    />
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+      {councilMembers.map((m, i) => (
+        <motion.div
+          key={i}
+          custom={i}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          className="flex flex-col items-center text-center p-5 rounded-xl bg-card shadow-card border border-border"
+        >
+          <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-teal/30 mb-3 flex items-center justify-center">
+            {/* Display member image if available, fallback to icon */}
+            {m.image ? (
+              <img
+                src={m.image}
+                alt={m.name}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <Users className="text-muted-foreground" size={28} />
+            )}
           </div>
-        </div>
-      </section>
+          <h4 className="font-heading font-semibold text-foreground text-sm">
+            {m.name}
+          </h4>
+          <span
+            className={`mt-2 px-3 py-1 rounded-full text-[11px] font-heading font-semibold text-black ${m.color}`}
+          >
+            {m.role}
+          </span>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ═══ SECTION 12: SUPPORTERS & SPONSORS ═══ */}
       <section className="section-padding bg-secondary">
@@ -599,10 +650,10 @@ useEffect(() => {
                 </div>
               ))}
               <div className="flex gap-3 mt-6">
-                <Link to="/resources" className="px-5 py-2.5 rounded-lg bg-teal text-teal-foreground font-heading font-semibold text-sm hover:bg-teal/90 transition-colors">
+                <Link to="/resources" className="px-5 py-2.5 rounded-lg bg-accent text-accent-foreground font-heading font-semibold hover:bg-accent/90 transition-colors">
                   Submit Research
                 </Link>
-                <Link to="/resources" className="px-5 py-2.5 rounded-lg border border-border text-foreground font-heading font-semibold text-sm hover:bg-muted transition-colors">
+                <Link to="/resources" className="px-5 py-2.5 rounded-lg border-2 border-white/30 text-black  font-heading font-semibold hover:bg-black/50 transition-colors"> 
                   Browse Issues
                 </Link>
               </div>
@@ -620,24 +671,14 @@ useEffect(() => {
               Let's come together to ensure every patient in Pakistan gets access to life-saving radiotherapy
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/contact" className="px-7 py-3.5 rounded-lg border-2 border-white/30 text-white font-heading font-semibold hover:bg-white/10 transition-colors">
-                Share Your Story
-              </Link>
               <Link to="/membership" className="px-7 py-3.5 rounded-lg bg-accent text-accent-foreground font-heading font-semibold hover:bg-accent/90 transition-colors">
                 Join PSORT <ArrowRight size={16} className="inline ml-1" />
               </Link>
+               <Link to="/contact" className="px-7 py-3.5 rounded-lg border-2 border-white/30 text-black  font-heading font-semibold hover:bg-black/50 transition-colors">
+                Share Your Story
+              </Link>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* ═══ SECTION 16: SOCIAL BAR ═══ */}
-      <section className="bg-teal text-teal-foreground py-4">
-        <div className="container-narrow flex items-center justify-center gap-6 px-4">
-          <span className="text-sm font-heading font-semibold">Follow Us</span>
-          {["Twitter", "Facebook", "LinkedIn", "Instagram", "YouTube"].map((name) => (
-            <a key={name} href="#" className="text-sm font-heading opacity-70 hover:opacity-100 transition-opacity">{name}</a>
-          ))}
         </div>
       </section>
     </Layout>
