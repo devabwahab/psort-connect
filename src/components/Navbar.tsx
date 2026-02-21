@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Facebook, Linkedin, Instagram, Twitter, Youtube } from "lucide-react";
+import { Menu, X, ChevronDown, Youtube, Linkedin, MessageCircle, LogOut } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAuth } from "@/hooks/useAuth";
 
 const megaMenus: Record<string, { label: string; to: string }[]> = {
   "About PSORT": [
@@ -68,6 +69,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { user, signOut } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -86,15 +88,27 @@ const Navbar = () => {
       <div className="bg-navy text-navy-foreground">
         <div className="container-narrow flex items-center justify-between px-4 sm:px-6 lg:px-8 h-9 text-xs">
           <div className="flex items-center gap-3">
-            {[Twitter, Facebook, Linkedin, Instagram, Youtube].map((Icon, i) => (
-              <a key={i} href="#" className="opacity-60 hover:opacity-100 transition-opacity">
+            {[
+              { Icon: Youtube, href: "https://youtube.com/@psort-7k?si=7mo3JktknGDKmf90" },
+              { Icon: Linkedin, href: "https://www.linkedin.com/company/pakistan-society-of-radiation-therapists-psort/" },
+              { Icon: MessageCircle, href: "https://chat.whatsapp.com/LGvZtLQ48QNHqUmicq7581?mode=gi_t" },
+            ].map(({ Icon, href }, i) => (
+              <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="opacity-60 hover:opacity-100 transition-opacity">
                 <Icon size={13} />
               </a>
             ))}
           </div>
           <div className="flex items-center gap-4">
-            <Link to="/dashboard" className="opacity-70 hover:opacity-100 transition-opacity font-heading">Dashboard</Link>
-            <Link to="/login" className="opacity-70 hover:opacity-100 transition-opacity font-heading">Login</Link>
+            {user ? (
+              <>
+                <Link to="/dashboard" className="opacity-70 hover:opacity-100 transition-opacity font-heading">Dashboard</Link>
+                <button onClick={() => signOut()} className="opacity-70 hover:opacity-100 transition-opacity font-heading flex items-center gap-1">
+                  <LogOut size={12} /> Logout
+                </button>
+              </>
+            ) : (
+              <Link to="/login" className="opacity-70 hover:opacity-100 transition-opacity font-heading">Login</Link>
+            )}
             <Link to="/membership" className="px-3 py-1 rounded bg-accent text-accent-foreground font-heading font-semibold hover:bg-accent/90 transition-colors">
               Become a Member
             </Link>
